@@ -1,0 +1,3 @@
+fit,converged,iterations,llf,max_abs_score,message,max_abs_beta_diff_vs_newton
+Newton-Raphson (primary),True,6,-1131.1520387469773,2.1953550088937845e-12,,
+scipy BFGS cross-check,True,34,-1131.1520387469775,9.053317142470457e-07,Optimization terminated successfully.,4.0882468521630244e-09

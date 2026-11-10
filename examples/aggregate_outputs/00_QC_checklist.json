@@ -1,0 +1,15 @@
+{
+  "high_car_primary": 1276,
+  "car_boundary_ties_primary": 37,
+  "n_primary": 3935,
+  "events_primary": 406,
+  "n_duration_in": 4023,
+  "events_duration_in": 416,
+  "Both_RD_pp_from_table2": "7.35 (3.38 to 11.65)",
+  "P3_plus_art_RD": 4.648054413738116,
+  "P3_plus_art_OR": 1.7709650840279074,
+  "legacy_match_pct": 99.79669631512071,
+  "anend_missing_used_opend": 10,
+  "finished": "2026-11-08 16:57:55",
+  "files_in_rerun_out": 101
+}

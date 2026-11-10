@@ -1,0 +1,24 @@
+{
+  "out_dir": "rerun_out",
+  "primary_cohort_csv": "data/derived/primary_cohort_dcc_enriched.csv",
+  "duration_cohort_csv": "data/derived/duration_cohort_4023.csv",
+  "car_available_csv": "data/derived/car_available_4529.csv",
+  "inspire_vitals": "data/inspire/vitals.csv.gz",
+  "inspire_raw_dir": "data/inspire",
+  "physionet_sha256sums": {
+    "1.4.2": "data/inspire/SHA256SUMS.txt"
+  },
+  "car_cut": 0.0738095238,
+  "ioh_cut_min": 30,
+  "map_low": 65,
+  "phys_range": [
+    20,
+    250
+  ],
+  "epoch_min": 5,
+  "window": "anaesthesia",
+  "n_boot": 1000,
+  "seed": 20261108,
+  "primary_interval": "percentile",
+  "jackknife_for_bca": "leave_one_out"
+}

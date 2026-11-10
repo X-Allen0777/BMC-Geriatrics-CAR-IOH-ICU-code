@@ -1,0 +1,12 @@
+{
+  "inspire_version_used": "1.4.2",
+  "doi": "10.13026/1eay-yc85",
+  "url": "https://physionet.org/content/inspire/1.4.2/",
+  "sha256_check": "all listed core files matched PhysioNet SHA256SUMS for 1.4.2 in the locked re-run",
+  "analysis_window": "anaesthesia [anstart_time, anend_time)",
+  "car_cut": 0.0738095238,
+  "ioh_cut_min": 30,
+  "map_threshold_mmHg": 65,
+  "seed": 20261108,
+  "n_boot_primary": 1000
+}

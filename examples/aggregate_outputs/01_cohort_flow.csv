@@ -1,0 +1,6 @@
+step,n,events
+Primary complete-case cohort (as previously defined),3936,407
+Excluded: ICU entry before end of surgery,1,1
+Revised primary cohort,3935,406
+Duration cohort (as previously defined),4023,416
+Revised duration cohort,4022,415

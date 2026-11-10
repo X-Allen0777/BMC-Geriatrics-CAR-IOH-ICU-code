@@ -1,0 +1,4 @@
+analysis,start_n,excluded,final_n,events
+exclude infection- or tumour-related,3935,391,3544,329
+exclude spine procedures,3935,400,3535,356
+exclude emergency surgery,3935,261,3674,354

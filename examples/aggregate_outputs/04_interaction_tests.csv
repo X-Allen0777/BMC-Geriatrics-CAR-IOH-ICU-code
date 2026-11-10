@@ -1,0 +1,4 @@
+test,statistic,df,p,ci
+"phenotype x arterial monitoring, LRT (multiplicative)",1.3551300701492437,3.0,0.7160853552897795,
+"Both x arterial, Wald (log-OR scale)",0.6824718454329433,1.0,0.28950152220372805,
+"difference in Both-vs-Neither RD, arterial minus no arterial (additive), pp",9.923932468266216,,0.016293279022403257,9.92 (1.75 to 17.95)

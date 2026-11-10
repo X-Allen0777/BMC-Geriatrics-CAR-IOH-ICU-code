@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the article and this software."
+title: "CAR x intraoperative hypotension and early ICU admission - analysis code"
+version: "1.0.0"
+date-released: "2026-11-08"
+license: MIT
+repository-code: "https://github.com/REPLACE_WITH_ORG/REPLACE_WITH_REPO"
+authors:
+  - family-names: "REPLACE"
+    given-names: "REPLACE"
