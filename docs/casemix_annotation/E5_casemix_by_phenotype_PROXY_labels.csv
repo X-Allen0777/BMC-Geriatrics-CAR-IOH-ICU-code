@@ -1,0 +1,11 @@
+Characteristic,Neither,High CAR only,IOH ≥30 min only,Both,P value
+n,2162,937,497,340,—
+Emergency surgery (emop),71 (3.3),125 (13.3),21 (4.2),44 (12.9),8.38e-29
+Fracture-related PROXY (fracture dx prefixes and/or emergency surgery),283 (13.1),423 (45.1),86 (17.3),156 (45.9),8.87e-102
+Indication group: fracture-or-emergency PROXY,280 (13.0),374 (39.9),85 (17.1),137 (40.3),2.97e-75
+Hip-fracture cohort (proxy),71 (3.3),210 (22.4),32 (6.4),70 (20.6),2.86e-70
+Infection-related dx (proxy),55 (2.5),120 (12.8),24 (4.8),41 (12.1),5.6e-31
+Tumour-related dx (proxy),58 (2.7),35 (3.7),23 (4.6),38 (11.2),2.36e-12
+PCS revision (root W),27 (1.2),17 (1.8),19 (3.8),22 (6.5),7.5e-10
+"Charlson index, median (IQR)",0 (0–1),0 (0–2),0 (0–1),1 (0–3),3.43e-42
+ICU admission,115 (5.3),136 (14.5),66 (13.3),90 (26.5),5.15e-38

@@ -1,0 +1,14 @@
+{
+  "project_root": ".",
+  "inspire_raw_dir": "data/inspire",
+  "data_dir": "data",
+  "dcc_csv": "results/car_ioh_icu_os65/01_Table01_baseline/Table01_analytic_cohort_Dcc.csv",
+  "mc9_annotated_csv": "data/derived_verification/Dcc_MC9_annotated.csv",
+  "icu_aki_fields_csv": "data/mc2_inspire_os65_icu_aki_fields.csv",
+  "car_formal_csv": "data/inspire_os65_car_formal.csv",
+  "out_dir": "data/derived",
+  "car_cut": 0.07380952380952381,
+  "expected_n_primary": 3936,
+  "expected_n_duration": 4023,
+  "expected_n_car_available": 4529
+}

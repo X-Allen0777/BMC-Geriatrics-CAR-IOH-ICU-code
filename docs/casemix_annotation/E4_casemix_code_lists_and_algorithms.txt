@@ -1,0 +1,42 @@
+Exact code lists and classification algorithms — Editor Comment 5
+
+A. Timing rule for diagnosis flags
+  Preoperative ICD-10-CM codes from INSPIRE diagnosis.csv with chart_time ≤ opstart_time; when admission_time is available, prefer codes with chart_time ≥ admission_time if any remain.
+  Matching is prefix-based on upper-cased ICD-10-CM strings (3+ character codes).
+
+B. Fracture-related PROXY (NOT confirmed fracture surgery)
+  Definition: any preoperative diagnosis with prefix in FX_PREF OR emergency surgery flag emop=1.
+  This is a PROXY combining fracture-coded diagnoses with any emergency pathway; it does NOT adjudicate that the index operation was fracture fixation.
+  FX_PREF = ['S12', 'S22', 'S32', 'S42', 'S52', 'S62', 'S72', 'S82', 'S92', 'T02', 'T08', 'T10', 'T12', 'M80', 'M84']
+
+C. Hierarchical indication_group (mutually exclusive)
+  Priority order:
+    1. tumour_related if any TUM_PREF preoperative code
+    2. infection_related if any INF_PREF preoperative code
+    3. fracture_or_emergency PROXY if FX_PREF / HIPFX_PREF diagnosis OR emop=1
+    4. elective_joint if proc_axis = joint_arthroplasty
+    5. elective_spine if proc_axis = spine_procedure
+    6. other_elective_or_unclassified otherwise
+  Display label for group 3 in all revision text/tables: 'Fracture-or-emergency proxy (dx and/or emop)' — never 'confirmed fracture surgery'.
+
+D. Infection-related PROXY
+  INF_PREF = ['M00', 'M01', 'M86', 'M46', 'A40', 'A41', 'T81', 'T84', 'L03', 'K65']
+
+E. Tumour-related PROXY
+  TUM_PREF = ['C40', 'C41', 'C49', 'C76', 'C78', 'C79', 'C80', 'D16', 'D21', 'C45']
+
+F. Hip-fracture cohort PROXY
+  HIPFX_PREF = ['S72']
+  OR hip-oriented PCS (0SR hip surfaces / 0QH*) AND fracture_related_proxy==1.
+
+G. Procedure axis (ICD-10-PCS) — see pcs_proc_map_v1.md
+  joint_arthroplasty: ^0SR[9ABECDFGERS] or ^0RR[JK]
+  spine_procedure: Fusion body-part whitelist on 0RG*/0SG*
+  Revision flag: PCS root character W
+  Mutual exclusivity: joint → spine → other_orthopedic
+
+H. Charlson index
+  INSPIRE-distributed charlson_index (ICD-derived). Not rebuilt Elixhauser; not a clinical frailty instrument.
+
+I. Exclusion for infection/tumour sensitivity
+  Drop operations with infection_related==1 OR tumour_related==1 (preoperative ICD flags above). Distinct from Supplementary Table S12, which only excludes spine procedures or emergency surgery.

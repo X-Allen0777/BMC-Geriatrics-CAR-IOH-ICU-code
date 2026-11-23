@@ -1,0 +1,11 @@
+# Pinned environment for reproducing locked aggregate outputs
+# (examples/aggregate_outputs/, including Table S3 inputs).
+# Python 3.12.x recommended.
+numpy==2.4.6
+pandas==2.3.3
+scipy==1.17.1
+scikit-learn==1.9.0
+statsmodels==0.14.6
+matplotlib==3.11.0
+python-docx==1.2.0
+Pillow==11.3.0

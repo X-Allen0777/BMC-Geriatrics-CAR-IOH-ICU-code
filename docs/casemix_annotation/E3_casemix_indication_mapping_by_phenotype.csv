@@ -1,0 +1,11 @@
+﻿Category,n,% of Dcc,"High CAR, %","Emergency, %","ICU, %"
+All Dcc,3936,100.0,32.4,6.6,10.3
+Fracture-related (dx/emop),948,24.1,61.1,27.5,16.4
+Hip-fracture cohort,383,9.7,73.1,21.7,21.1
+Infection-related dx,240,6.1,67.1,20.8,20.4
+Tumour-related dx,154,3.9,47.4,3.2,18.8
+PCS revision,85,2.2,45.9,3.5,9.4
+Primary arthroplasty PCS,967,24.6,32.3,3.7,6.5
+Spine PCS,401,10.2,22.2,3.7,12.7
+Joint arthroplasty axis,967,24.6,32.3,3.7,6.5
+Other orthopaedic axis,2568,65.2,34.1,8.2,11.4

@@ -6,6 +6,7 @@ CAR = CRP(mg/dL)/albumin(g/dL) [Lin]; High = T3 with locked cut ≥0.0738.
 """
 from __future__ import annotations
 
+import argparse
 import json
 import shutil
 from pathlib import Path
@@ -19,9 +20,31 @@ from docx.oxml.ns import qn
 from docx.shared import Cm, Inches, Pt
 from scipy import stats
 
-ROOT = Path(r"e:\DS-智能体\222")
+ROOT = Path.cwd()
 OUT_PROJ = ROOT / "results" / "car_ioh_icu_os65" / "01_Table01_baseline"
-DESK = Path(r"E:\桌面") / "222" / "01_Table01_baseline"
+DESK: Path | None = None
+ANEMIA_COHORT = (
+    ROOT / "results" / "anemia_ioh_icu_os65" / "01_Table01_baseline" / "Table01_analytic_cohort.csv"
+)
+CAR_ENRICH = ROOT / "data" / "inspire_os65_car_enrich.csv"
+
+
+def configure_paths(
+    project_root: Path,
+    out_dir: Path | None = None,
+    anemia_cohort: Path | None = None,
+    car_enrich: Path | None = None,
+    mirror_dir: Path | None = None,
+) -> None:
+    global ROOT, OUT_PROJ, DESK, ANEMIA_COHORT, CAR_ENRICH
+    ROOT = project_root.resolve()
+    OUT_PROJ = (out_dir or (ROOT / "results" / "car_ioh_icu_os65" / "01_Table01_baseline")).resolve()
+    ANEMIA_COHORT = (
+        anemia_cohort
+        or (ROOT / "results" / "anemia_ioh_icu_os65" / "01_Table01_baseline" / "Table01_analytic_cohort.csv")
+    ).resolve()
+    CAR_ENRICH = (car_enrich or (ROOT / "data" / "inspire_os65_car_enrich.csv")).resolve()
+    DESK = mirror_dir.resolve() if mirror_dir else None
 
 IOH_THR = 30.0
 # Locked historical T3 cut (Lin formula); do not recompute on Dcc
@@ -154,16 +177,9 @@ def p_chi(df, col):
 
 
 def load_cohort():
-    base = pd.read_csv(
-        ROOT
-        / "results"
-        / "anemia_ioh_icu_os65"
-        / "01_Table01_baseline"
-        / "Table01_analytic_cohort.csv",
-        low_memory=False,
-    )
+    base = pd.read_csv(ANEMIA_COHORT, low_memory=False)
     enrich = pd.read_csv(
-        ROOT / "data" / "inspire_os65_car_enrich.csv",
+        CAR_ENRICH,
         usecols=["op_id", "labs_crp_last_preop7d", "labs_albumin_last_preop7d"],
     )
     d = base.merge(enrich, on="op_id", how="left")
@@ -347,7 +363,6 @@ def to_docx(header, rows, path: Path, footnote: str):
 
 def main():
     OUT_PROJ.mkdir(parents=True, exist_ok=True)
-    DESK.mkdir(parents=True, exist_ok=True)
 
     raw, dexp, dcc = load_cohort()
     rows, header, ns = build_rows(dcc)
@@ -448,15 +463,35 @@ def main():
 """
     (OUT_PROJ / brief_name).write_text(brief, encoding="utf-8")
 
-    for f in OUT_PROJ.iterdir():
-        if f.is_file():
-            shutil.copy2(f, DESK / f.name)
+    if DESK is not None:
+        DESK.mkdir(parents=True, exist_ok=True)
+        for f in OUT_PROJ.iterdir():
+            if f.is_file():
+                shutil.copy2(f, DESK / f.name)
 
-    # Keep prior High vs Low artifacts if present on Desktop under same folder name
     print(json.dumps(meta, indent=2, ensure_ascii=False))
     print("OUT", OUT_PROJ)
-    print("DESK", DESK)
+    if DESK is not None:
+        print("MIRROR", DESK)
 
 
 if __name__ == "__main__":
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--project-root", type=Path, default=Path.cwd())
+    ap.add_argument("--out-dir", type=Path, default=None)
+    ap.add_argument(
+        "--anemia-cohort",
+        type=Path,
+        default=None,
+        help="Path to Table01_analytic_cohort.csv from make_table01_anemia_ioh_icu.py",
+    )
+    ap.add_argument(
+        "--car-enrich",
+        type=Path,
+        default=None,
+        help="Path to inspire_os65_car_enrich.csv (CRP/albumin extract)",
+    )
+    ap.add_argument("--mirror-dir", type=Path, default=None, help="Optional extra copy destination")
+    ns = ap.parse_args()
+    configure_paths(ns.project_root, ns.out_dir, ns.anemia_cohort, ns.car_enrich, ns.mirror_dir)
     main()

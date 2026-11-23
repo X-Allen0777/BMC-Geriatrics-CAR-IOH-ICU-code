@@ -1,0 +1,6 @@
+﻿Release: v1.0.3
+Tag: v1.0.3
+Commit: c7b5f292f4a22d386624c6e36d131e72d3c75fef (create this commit/tag on GitHub when uploading this tree)
+Based on: v1.0.2 / a3fcbec3cd6c6709e42b13fd2b19d62406b94dfd ; v1.0.1 / 97f42c0ae5191cadd388b41861dd4a1ad928bc87
+Contents: updated RUN_REPRODUCE.md, audit_icu_map_timing.py, Table-S3-aligned 04_interaction_tests.csv, prepare_rerun_inputs.py, configurable Table01 paths, requirements-lock.txt, docs/ENVIRONMENT.md
+No patient-level data.

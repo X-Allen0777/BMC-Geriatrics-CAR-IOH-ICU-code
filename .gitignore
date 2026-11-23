@@ -1,0 +1,18 @@
+# never commit restricted / patient-level data
+data/inspire/*
+!data/inspire/README.md
+data/derived/*
+!data/derived/README.md
+**/*.csv.gz
+**/vitals.csv*
+**/operations.csv*
+**/labs.csv*
+**/diagnosis.csv*
+**/medications.csv*
+**/ward_vitals.csv*
+rerun_out/
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+venv/

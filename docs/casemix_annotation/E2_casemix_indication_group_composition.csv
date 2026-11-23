@@ -1,0 +1,7 @@
+indication_group_code,indication_group_display,n,pct_Dcc,High_CAR_pct,Emergency_pct,ICU_pct
+other_elective_or_unclassified,Other elective / unclassified,1548,39.329268292682926,19.12144702842377,0.0,8.462532299741603
+fracture_or_emergency,Fracture-or-emergency proxy (dx and/or emop),876,22.25609756097561,58.333333333333336,23.63013698630137,15.296803652968036
+elective_joint,Elective joint arthroplasty (PCS axis),767,19.48678861788618,22.946544980443285,0.0,2.737940026075619
+elective_spine,Elective spine (PCS axis),354,8.99390243902439,17.51412429378531,0.0,12.429378531073446
+infection_related,Infection-related dx (proxy),237,6.021341463414634,67.08860759493672,20.675105485232066,20.253164556962027
+tumour_related,Tumour-related dx (proxy),154,3.91260162601626,47.4025974025974,3.2467532467532463,18.83116883116883

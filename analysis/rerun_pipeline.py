@@ -746,7 +746,7 @@ def run_all(cfg):
         c.insert(0, "stratum", lab)
         cnt.append(c)
     pd.concat(cnt).to_csv(out / "04_phenotype_counts_by_monitoring.csv")
-    # multiplicative interaction (LRT, 3 df) and additive (bootstrap difference of stratum RDs)
+    # multiplicative interaction (LRT, 3 df) and bootstrap comparison of stratum-specific RDs
     r0, _ = fit_spec(prim, Spec(extra=["art_any"]))
     r1, _ = fit_spec(prim, Spec(extra=["art_any"], interact_pheno_with="art_any"))
     lr = 2 * (r1.llf - r0.llf)
@@ -756,8 +756,8 @@ def run_all(cfg):
     w = wald_row(r1, "ph_G11:art_any")
     inter.append({"test": "Both x arterial, Wald (log-OR scale)", "statistic": math.log(w["OR"]), "df": 1, "p": w["p_wald"]})
     d_ = sm_d.set_index("estimand").loc["RD_art_minus_noart"]
-    inter.append({"test": "difference in Both-vs-Neither RD, arterial minus no arterial (additive), pp",
-                  "statistic": d_.point, "df": np.nan, "p": d_.p_boot,
+    inter.append({"test": "difference in Both-vs-Neither RD, arterial minus no arterial (stratum-specific standardised RDs; not common-population additive interaction), pp",
+                  "statistic": d_.point, "df": np.nan, "p": np.nan,
                   "ci": fmt_ci(d_.point, d_.pct_lo, d_.pct_hi)})
     pd.DataFrame(inter).to_csv(out / "04_interaction_tests.csv", index=False)
 

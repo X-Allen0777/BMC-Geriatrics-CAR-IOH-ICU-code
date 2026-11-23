@@ -1,0 +1,42 @@
+domain,prefix,system
+fracture_dx_proxy,S12,ICD-10-CM
+fracture_dx_proxy,S22,ICD-10-CM
+fracture_dx_proxy,S32,ICD-10-CM
+fracture_dx_proxy,S42,ICD-10-CM
+fracture_dx_proxy,S52,ICD-10-CM
+fracture_dx_proxy,S62,ICD-10-CM
+fracture_dx_proxy,S72,ICD-10-CM
+fracture_dx_proxy,S82,ICD-10-CM
+fracture_dx_proxy,S92,ICD-10-CM
+fracture_dx_proxy,T02,ICD-10-CM
+fracture_dx_proxy,T08,ICD-10-CM
+fracture_dx_proxy,T10,ICD-10-CM
+fracture_dx_proxy,T12,ICD-10-CM
+fracture_dx_proxy,M80,ICD-10-CM
+fracture_dx_proxy,M84,ICD-10-CM
+hip_fracture_dx_proxy,S72,ICD-10-CM
+infection_dx_proxy,M00,ICD-10-CM
+infection_dx_proxy,M01,ICD-10-CM
+infection_dx_proxy,M86,ICD-10-CM
+infection_dx_proxy,M46,ICD-10-CM
+infection_dx_proxy,A40,ICD-10-CM
+infection_dx_proxy,A41,ICD-10-CM
+infection_dx_proxy,T81,ICD-10-CM
+infection_dx_proxy,T84,ICD-10-CM
+infection_dx_proxy,L03,ICD-10-CM
+infection_dx_proxy,K65,ICD-10-CM
+tumour_dx_proxy,C40,ICD-10-CM
+tumour_dx_proxy,C41,ICD-10-CM
+tumour_dx_proxy,C49,ICD-10-CM
+tumour_dx_proxy,C76,ICD-10-CM
+tumour_dx_proxy,C78,ICD-10-CM
+tumour_dx_proxy,C79,ICD-10-CM
+tumour_dx_proxy,C80,ICD-10-CM
+tumour_dx_proxy,D16,ICD-10-CM
+tumour_dx_proxy,D21,ICD-10-CM
+tumour_dx_proxy,C45,ICD-10-CM
+emergency_flag,emop=1,operations
+fracture_related_proxy_algorithm,FX_PREF match OR emop=1,composite PROXY
+joint_arthroplasty_PCS,^0SR[9ABECDFGERS] | ^0RR[JK],ICD-10-PCS
+spine_PCS,Fusion whitelist 0RG*/0SG* (pcs_proc_map_v1),ICD-10-PCS
+revision_PCS,root character W,ICD-10-PCS
