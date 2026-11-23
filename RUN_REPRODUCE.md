@@ -2,18 +2,16 @@
 
 # Reproduce locked analyses (Windows and Linux/macOS)
 
-Release: **v1.0.3** (extends v1.0.2)  
-Git tag: v1.0.3
-Commit: `c7b5f292f4a22d386624c6e36d131e72d3c75fef`  
-Release URL: https://github.com/X-Allen0777/BMC-Geriatrics-CAR-IOH-ICU-code/releases/tag/v1.0.3  
-Zenodo DOI: version-specific DOI for the v1.0.3 deposit (replace after minting)
+Release: **v1.0.4** (tag v1.0.4)
+Release URL: https://github.com/X-Allen0777/BMC-Geriatrics-CAR-IOH-ICU-code/releases/tag/v1.0.4
+Full commit SHA and Zenodo DOI: shown on the release page and in the Zenodo record linked from it.
 
 ## 0. Get the code
 
 ```bash
 git clone https://github.com/X-Allen0777/BMC-Geriatrics-CAR-IOH-ICU-code.git
 cd BMC-Geriatrics-CAR-IOH-ICU-code
-git checkout v1.0.3
+git checkout v1.0.4
 ```
 
 Or download the release zip from the release URL above.
